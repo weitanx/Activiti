@@ -36,7 +36,11 @@ public class ConnectorService {
     @Value("${activiti.connectors.dir:connectors}")
     private String connectorRoot;
 
-    private final ObjectMapper objectMapper = new ObjectMapper();
+    private final ObjectMapper objectMapper;
+
+    public ConnectorService(ObjectMapper objectMapper) {
+        this.objectMapper = objectMapper;
+    }
 
     private Optional<File[]> retrieveFiles() throws IOException {
 
