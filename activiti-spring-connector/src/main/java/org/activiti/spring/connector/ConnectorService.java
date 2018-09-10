@@ -16,6 +16,12 @@
 
 package org.activiti.spring.connector;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.activiti.model.connector.ConnectorDefinition;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
+import org.springframework.stereotype.Service;
+
 import java.io.File;
 import java.io.FilenameFilter;
 import java.io.IOException;
@@ -23,22 +29,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import org.activiti.model.connector.ConnectorDefinition;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
-import org.springframework.stereotype.Service;
-
 @Service
 public class ConnectorService {
 
-    @Value("${activiti.connectors.dir:connectors}")
     private String connectorRoot;
 
     private final ObjectMapper objectMapper;
 
-    public ConnectorService(ObjectMapper objectMapper) {
+    public ConnectorService(String connectorRoot, ObjectMapper objectMapper) {
+        this.connectorRoot = connectorRoot;
         this.objectMapper = objectMapper;
     }
 
