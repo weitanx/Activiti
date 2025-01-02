@@ -13,19 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.activiti.engine.impl.cmd;
 
-import org.activiti.engine.api.internal.Internal;
+package org.activiti.spring.process;
 
-/**
+import java.util.Optional;
+import org.activiti.spring.process.model.Extension;
+import org.springframework.lang.NonNull;
 
- */
-@Internal
-public interface DeploymentSettings {
+public interface ProcessExtensionRepository {
 
-  String IS_BPMN20_XSD_VALIDATION_ENABLED = "isBpmn20XsdValidationEnabled";
-
-  String IS_PROCESS_VALIDATION_ENABLED = "isProcessValidationEnabled";
-
-  String RESOURCE_NAMES = "resourceNames";
+    Optional<Extension> getExtensionsForId(@NonNull String processDefinitionId);
 }

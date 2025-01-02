@@ -13,19 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.activiti.engine.impl.cmd;
 
-import org.activiti.engine.api.internal.Internal;
+package org.activiti.spring.cache.caffeine;
 
-/**
+import com.github.benmanes.caffeine.cache.Cache;
+import com.github.benmanes.caffeine.cache.Caffeine;
+import java.util.function.Function;
+import java.util.function.Predicate;
 
- */
-@Internal
-public interface DeploymentSettings {
+public interface ActivitiSpringCaffeineCacheConfigurer extends Predicate<String>, Function<Caffeine<Object,Object>, Cache<Object, Object>> {
 
-  String IS_BPMN20_XSD_VALIDATION_ENABLED = "isBpmn20XsdValidationEnabled";
-
-  String IS_PROCESS_VALIDATION_ENABLED = "isProcessValidationEnabled";
-
-  String RESOURCE_NAMES = "resourceNames";
 }
