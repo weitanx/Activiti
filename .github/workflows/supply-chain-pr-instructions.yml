@@ -17,7 +17,7 @@ jobs:
     permissions:
       pull-requests: write
     steps:
-      - uses: Alfresco/alfresco-build-tools/.github/actions/github-upsert-comment@f1bae5a4bdb3b12030a350e52b8f661dbcb2f849 # v18.28.3
+      - uses: Alfresco/alfresco-build-tools/.github/actions/github-upsert-comment@1e3c532db0dac7229f51e6296ac5414260ed2357 # v19.0.0
         with:
           comment-identifier: supply-chain-review-instructions
           comment-body: |
